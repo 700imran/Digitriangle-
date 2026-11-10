@@ -1,0 +1,6 @@
+document.querySelector('.burger')?.addEventListener('click',e=>{const n=document.querySelector('nav');n.classList.toggle('open');e.target.setAttribute('aria-expanded',n.classList.contains('open'))});
+const m=document.getElementById('meals');if(m&&!matchMedia('(prefers-reduced-motion:reduce)').matches){let t0=null;const go=t=>{t0??=t;const p=Math.min((t-t0)/2200,1);m.textContent=Math.round(50000*(1-Math.pow(1-p,3))).toLocaleString();p<1&&requestAnimationFrame(go)};requestAnimationFrame(go)}
+const chips=document.querySelectorAll('.chip'),jobs=document.querySelectorAll('.job'),q=document.getElementById('q');
+function filt(){const c=document.querySelector('.chip[aria-pressed=true]')?.dataset.c||'all',s=(q?.value||'').toLowerCase();let n=0;jobs.forEach(j=>{const ok=(c==='all'||j.dataset.c===c)&&j.dataset.t.includes(s);j.hidden=!ok;n+=ok});const k=document.getElementById('count');if(k)k.textContent=n+' open roles'}
+chips.forEach(c=>c.onclick=()=>{chips.forEach(x=>x.setAttribute('aria-pressed',x===c));filt()});q?.addEventListener('input',filt);filt();
+document.getElementById('cf')?.addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target);location.href='mailto:info@gtckuwait.com?subject='+encodeURIComponent(f.get('s')+' - '+f.get('n'))+'&body='+encodeURIComponent(f.get('m')+'\n\n'+f.get('e'))});
